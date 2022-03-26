@@ -236,6 +236,8 @@ section2:addButton("Increase Magic", function()
     
     game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
     
+    wait()
+    game.Players.LocalPlayer.Character.increasedMaxMagic:destroy()
 end)
 
 
@@ -319,7 +321,8 @@ section2:addButton("Increase Energy", function()
         }
         
         game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-        
+     wait()
+     game.Players.LocalPlayer.Character.increasedMaxEnergy:destroy()   
         
 	
 	end)
@@ -369,56 +372,81 @@ end)
 section3:addButton("KILL-ALL ", function()
 	print("Clicked")
 
+    local Plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
 
+        if Player.Character ~= nil and Player ~= Plr then
+            local mag = (Player.Character.UpperTorso.Position - Plr.Character.UpperTorso.Position).magnitude
+            if mag < 10000 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+ 
 
-
-end)
-
-
-section3:addToggle("Dark Josie's Teleport  (Q)", nil, function(value)
-	print("Toggled", value)
-	if value then
-	    
-clicktpon = true                    
-plr = game.Players.LocalPlayer
-hum = plr.Character.HumanoidRootPart
-mouse = plr:GetMouse()
-mouse.KeyDown:connect(function(key)
-if key == 'q' then
-if mouse.Target then
-if clicktpon then
 local args = {
-    [1] = {
-        ["Target"] = Vector3.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
-    }
+[1] = "TelekinesisEnd",
+[2] = {
+    ["Target"] = Target.UpperTorso,
+    ["Throw"] = true
+}
 }
 
-game:GetService("ReplicatedStorage").Events.CharacterSystems.DJTeleport:FireServer(unpack(args)) end
-end
-end
-end)
+game:GetService("ReplicatedStorage").Events.CharacterSystems.Telekinesis:FireServer(unpack(args))
 
-   else
-    
-clicktpon = false                    
-plr = game.Players.LocalPlayer
-hum = plr.Character.HumanoidRootPart
-mouse = plr:GetMouse()
-mouse.KeyDown:connect(function(key)
-if key == 'q' then
-if mouse.Target then
-if clicktpon then
+
+end
+end
+end
+
+
+local Plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+
+        if Player.Character ~= nil and Player ~= Plr then
+            local mag = (Player.Character.UpperTorso.Position - Plr.Character.UpperTorso.Position).magnitude
+            if mag < 1000 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+ 
+
 local args = {
-    [1] = {
-        ["Target"] = Vector3.new(mouse.Hit.x, mouse.Hit.y + 5, mouse.Hit.z)
-    }
+[1] = "TelekinesisEnd",
+[2] = {
+    ["Target"] = Target.UpperTorso,
+    ["Throw"] = true
+}
 }
 
-game:GetService("ReplicatedStorage").Events.CharacterSystems.DJTeleport:FireServer(unpack(args)) end
+game:GetService("ReplicatedStorage").Events.CharacterSystems.Telekinesis:FireServer(unpack(args))
+
+
 end
 end
-end)
 end
+
+
+local Plr = game.Players.LocalPlayer
+    for i, Player in pairs (game.Players:GetPlayers()) do
+
+        if Player.Character ~= nil and Player ~= Plr then
+            local mag = (Player.Character.UpperTorso.Position - Plr.Character.UpperTorso.Position).magnitude
+            if mag < 100 then
+                local Target = Player.Character or Player.CharacterAdded:Wait()
+ 
+
+local args = {
+[1] = "TelekinesisEnd",
+[2] = {
+    ["Target"] = Target.UpperTorso,
+    ["Throw"] = true
+}
+}
+
+game:GetService("ReplicatedStorage").Events.CharacterSystems.Telekinesis:FireServer(unpack(args))
+
+
+end
+end
+end
+
+
 
 end)
 
@@ -1530,15 +1558,11 @@ end)
 local page = venyx:addPage("Farming", 5012544693)
 local section10 = page:addSection("Farm Coins")
 
-section10:addToggle("Auto Farm Coins", nil, function(value)
-	print("Toggled", value)
-	if value then
+
+
+section10:addButton("Farm Coins", function()
+	print("Clicked")
     
-    _G.Melee = true ---- make true into false to stop loop
-   
-   
-   while _G.Melee == true do wait()
-   
     local args = {
         [1] = {
             [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
@@ -1549,49 +1573,20 @@ section10:addToggle("Auto Farm Coins", nil, function(value)
     }
     
     game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    
-     end   
 
-   else
+
+   local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "smallCoinGift",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
     
-    _G.Melee = false ---- make true into false to stop loop
-   
-   while _G.Melee == true do wait()
-   
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+
+
     local args = {
         [1] = {
             [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
@@ -1602,158 +1597,10 @@ section10:addToggle("Auto Farm Coins", nil, function(value)
     }
     
     game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    end
-
-end
-
-end)
+    wait()
+     game.Players.LocalPlayer.Character.scoin:destroy()
 
 
-section10:addButton("5K Coins", function()
-	print("Clicked")
-local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-end)
-
-
-
-section10:addButton("3K Coins", function()
-	print("Clicked")
-local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
-  
-end)
-
-
-section10:addButton("1K Coins", function()
-	print("Clicked")
-    local args = {
-        [1] = {
-            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-            [2] = "receiveHouseReward",
-            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-            [4] = 0;
-        }
-    }
-    
-    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-    
 end)
 
 
