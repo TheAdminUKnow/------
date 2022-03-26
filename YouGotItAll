@@ -201,9 +201,57 @@ end
 
 end)
 
-section2:addButton("Increase Magic", function()
-	print("Clicked")
-   local args = {
+
+
+
+
+section2:addToggle("Increase Magic     (Turn On & Off to gain)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxMagic",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxMagic",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxMagic",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        wait()
+        game.Players.LocalPlayer.Character.increasedMaxMagic:destroy()
+    
+
+
+end
+
+else
+    local args = {
         [1] = {
             [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
             [2] = "increaseMaxMagic",
@@ -238,10 +286,94 @@ section2:addButton("Increase Magic", function()
     
     wait()
     game.Players.LocalPlayer.Character.increasedMaxMagic:destroy()
-end)
+
+    
+end	
+	end)
 
 
+section2:addToggle("Increase Energy    (Turn On & Off to gain)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+     wait()
+     game.Players.LocalPlayer.Character.increasedMaxEnergy:destroy()   
+        
 
+
+end
+
+else
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxEnergy",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxEnergy",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxEnergy",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+ wait()
+ game.Players.LocalPlayer.Character.increasedMaxEnergy:destroy()   
+    
+    
+end	
 
 
 
@@ -286,46 +418,7 @@ end)
 
 
 
-section2:addButton("Increase Energy", function()
-	print("Clicked")
-	
-	local args = {
-            [1] = {
-                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-                [2] = "increaseMaxEnergy",
-                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-                [4] = 0;
-            }
-        }
-        
-        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-        
-        local args = {
-            [1] = {
-                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-                [2] = "increaseMaxEnergy",
-                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-                [4] = 0;
-            }
-        }
-        
-        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-        
-        local args = {
-            [1] = {
-                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
-                [2] = "increaseMaxEnergy",
-                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
-                [4] = 0;
-            }
-        }
-        
-        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
-     wait()
-     game.Players.LocalPlayer.Character.increasedMaxEnergy:destroy()   
-        
-	
-	end)
+
 
 
    
@@ -1558,11 +1651,56 @@ end)
 local page = venyx:addPage("Farming", 5012544693)
 local section10 = page:addSection("Farm Coins")
 
-
-
-section10:addButton("Farm Coins", function()
-	print("Clicked")
+section10:addToggle("Farm Coins     (Turn On & Off to gain)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
     
+    
+       local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        wait()
+         game.Players.LocalPlayer.Character.scoin:destroy()
+    
+    
+
+
+
+end
+
+else
+
     local args = {
         [1] = {
             [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
@@ -1601,7 +1739,10 @@ section10:addButton("Farm Coins", function()
      game.Players.LocalPlayer.Character.scoin:destroy()
 
 
-end)
+end	
+	end)
+
+
 
 
 local page = venyx:addPage("Teleports", 5012544693)
