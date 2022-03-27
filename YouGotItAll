@@ -1480,7 +1480,8 @@ end)
 section4:addButton("Becomne Vamp", function()
 	print("Clicked")
    
-     local args = {
+     
+    local args = {
     [1] = {
         ["Tribrid"] = true,
         ["Resurrect"] = true,
@@ -1488,7 +1489,8 @@ section4:addButton("Becomne Vamp", function()
         ["Transition"] = true,
         ["Resurrect"] = true,
         ["Option"] = "revive",
-        ["IsCustom"] = false
+        ["IsCustom"] = false,
+        ["Pos"] = CFrame.new(-251, 86, -100)
     }
 }
 
