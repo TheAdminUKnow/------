@@ -1463,13 +1463,40 @@ end)
 
 
 
-section4:addButton("Immortality", function()
+section4:addButton("Ressurect Yourself", function()
 	print("Clicked")
-    local args = {[1] = {["Damage"] = -math.huge}}
-    game:GetService("ReplicatedStorage").Events.CharacterSystems.FallDamage:FireServer(unpack(args))
+   local args = {
+    [1] = {
+        ["IsCustom"] = false,
+        ["Approved"] = true,
+        ["Option"] = "revive",
+        ["Resurrect"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
     
 end)
 
+
+section4:addButton("Becomne Vamp", function()
+	print("Clicked")
+   
+     local args = {
+    [1] = {
+        ["Tribrid"] = true,
+        ["Resurrect"] = true,
+        ["Approved"] = true,
+        ["Transition"] = true,
+        ["Resurrect"] = true,
+        ["Option"] = "revive",
+        ["IsCustom"] = false
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
+    
+end)
 
 
 
