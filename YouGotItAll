@@ -1461,8 +1461,6 @@ end)
 
 
 
-
-
 section4:addButton("Ressurect Yourself", function()
 	print("Clicked")
    local args = {
@@ -1497,7 +1495,6 @@ section4:addButton("Becomne Vamp", function()
 game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
     
 end)
-
 
 
 section4:addButton("Hide User", function()
