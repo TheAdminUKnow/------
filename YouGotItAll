@@ -1258,6 +1258,7 @@ section4:addButton("Become A Vamp", function()
         ["Resurrect"] = true,
         ["Option"] = "revive",
         ["IsCustom"] = false
+	["Pos"] = CFrame.new(-251, 86, -100)
         
     }
 }
