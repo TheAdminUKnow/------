@@ -1221,7 +1221,56 @@ end)
 
 
 
+section4:addButton("Auto Heretic", function()
+	print("Clicked")
+  
+    
+local success, errMsg = pcall(function()
 
+
+_G.Melee = true ---- make true into false to stop loop
+while _G.Melee == true do wait(2)
+
+
+ local args = {[1] = {["EyeColor"] = "Brown",["Gender"] = "Male",["CharDisplayName"] = ""}}
+        game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))
+        
+        wait(1)
+        
+
+if game:GetService("Players").LocalPlayer.CharacterConfiguration.Specie.Value == "Siphoners" then
+    
+ _G.Melee = false ---- make true into false to stop loop
+while _G.Melee == true do wait()
+ local args = {[1] = {["EyeColor"] = "Brown",["Gender"] = "Male",["CharDisplayName"] = ""}}
+        game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))   
+    end
+  
+      local args = {
+    [1] = {
+        ["Tribrid"] = true,
+        ["Resurrect"] = true,
+        ["Approved"] = true,
+        ["Transition"] = true,
+        ["Resurrect"] = true,
+        ["Option"] = "revive",
+        ["IsCustom"] = false,
+        ["Pos"] = CFrame.new(-251, 86, -100)
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
+ print("Heretic")
+
+end
+
+
+end
+end)
+ if errMsg then
+        print(success)
+   end
+end)
 
 
 
