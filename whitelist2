@@ -1973,7 +1973,7 @@ for theme, color in pairs(themes) do -- all in one theme changer, i know, im coo
 end
 
 
-venyx:SelectPage(venyx.pages[1], true)
+venyx:SelectPage(venyx.pages[2], true)
 
 game.StarterGui:SetCore("SendNotification", { 
         Title = "Nut The Menace <3";
