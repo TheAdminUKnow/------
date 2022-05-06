@@ -1,0 +1,1999 @@
+---game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.E,false,game)
+
+
+local library = loadstring(game:HttpGet("http://void-scripts.com/UI/VenyxUi2.lua"))();
+local venyx = library.new("NTM | The Vampire Legacie GUI", 5013109572)
+
+-- themes
+local themes = {
+	Background = Color3.fromRGB(24, 24, 24),
+	Glow = Color3.fromRGB(0, 0, 0),
+	Accent = Color3.fromRGB(10, 10, 10),
+	LightContrast = Color3.fromRGB(20, 20, 20),
+	DarkContrast = Color3.fromRGB(14, 14, 14),  
+	TextColor = Color3.fromRGB(255, 255, 255)
+}
+
+-- first page
+local page = venyx:addPage("Main Menu", 5012544693)
+local section1 = page:addSection("The Shop")
+local section2 = page:addSection("The Enhancements")
+
+section1:addButton("Equip Faction Items", function()
+	print("Clicked")
+	
+	local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "buyCandle",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "buyDagger",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "buyPotion",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        local args = {
+            [1] = {
+                ["Message"] = "NutTheMenace: I Hope You Enjoy The Faction Items ",
+                ["Player"] = game:GetService("Players").LocalPlayer
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.CharacterSystems.SelfNotification:FireServer(unpack(args))
+	
+end)
+
+
+
+section1:addButton("Equip White Oak Ash", function()
+	print("Clicked")
+	
+	local args = {
+                [1] = {
+                    [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                    [2] = "freeStake",
+                    [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                    [4] = 0000000
+                }
+            }
+            
+            game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+            
+            local args = {
+                [1] = {
+                    [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                    [2] = "freeStake",
+                    [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                    [4] = 0000000
+                }
+            }
+            
+            game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+            
+            local args = {
+                [1] = {
+                    [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                    [2] = "freeStake",
+                    [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                    [4] = 0000000
+                }
+            }
+            
+            game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+             
+            local args = {
+                [1] = {
+                    [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                    [2] = "receiveWhiteOakAsh",
+                    [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                    [4] = 0000000
+                }
+            }
+            
+            game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+            
+	
+	end)
+
+
+
+
+    section1:addButton("Equip Blood Drink", function()
+        print("Clicked")
+        
+        local args = {
+                    [1] = {
+                        [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                        [2] = "receiveBloodDrink",
+                        [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                        [4] = 0000000
+                    }
+                }
+                
+                game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+    end)
+
+
+
+
+
+
+section1:addButton("Equip Wooden Stake", function()
+	print("Clicked")
+	
+	local args = {
+                [1] = {
+                    [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                    [2] = "freeStake",
+                    [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                    [4] = 0000000
+                }
+            }
+            
+            game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+	
+	end)
+
+
+    section1:addButton("Equip Blood Bags & Etc..", function()
+        print("Clicked")
+        
+        game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui:destroy()
+    for i,v in pairs(workspace:GetDescendants()) do
+			if v:IsA("ClickDetector") then
+				fireclickdetector(v)
+			end
+end
+        end)
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+-- Toggling magic rush
+section2:addToggle("Magic Rush (Must be holding Candle)", nil, function(value)
+	print("Toggled", value)
+	if value then
+	_G.Melee = true ---- make true into false to stop loop
+    
+   while _G.Melee == true do wait()
+       print('Magic Rush ON')
+      game:GetService("Players").LocalPlayer.Character.Candle.Handle.signal:FireServer()
+   end
+   else
+    _G.Melee = false ---- make true into false to stop loop
+    
+   while _G.Melee == true do wait()
+       print('Magic Rush OFF')  
+       game:GetService("Players").LocalPlayer.Character.Candle.Handle.signal:FireServer()
+   end
+end
+
+end)
+
+
+
+
+
+
+
+section2:addButton("Increase Magic", function()
+    print("Clicked")
+
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxMagic",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0000000
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxMagic",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0000000
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "increaseMaxMagic",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0000000
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    local success, errMsg = pcall(function()
+    game.Players.LocalPlayer.Character.increasedMaxMagic:destroy()
+    end)
+
+    if errMsg then
+        print(success)
+    end
+    
+
+
+end)
+
+
+
+
+    section2:addButton("Increase Energy", function()
+        print("Clicked")
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxEnergy",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+     
+     local success, errMsg = pcall(function()
+    game.Players.LocalPlayer.Character.increasedMaxEnergy:destroy()   
+    end)
+
+    if errMsg then
+        print(success)
+    end
+    
+     
+        
+
+    end)
+
+
+
+
+section2:addButton("Increase Health", function()
+	print("Clicked")
+
+local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxHealth",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxHealth",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxHealth",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+end)
+
+
+
+
+
+
+
+
+   
+
+
+local page = venyx:addPage("Combat", 5012544693)
+local section3 = page:addSection("The Spells & their Keybinds")
+local section4 = page:addSection("Modify Character")
+
+section3:addButton("Ascendo", function()
+	print("Clicked")
+	
+	local args = {
+            [1] = {
+                ["Message"] = "NutTheMenace: Ascendo is now activated, Lasts for 80 seconds ",
+                ["Player"] = game:GetService("Players").LocalPlayer
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.CharacterSystems.SelfNotification:FireServer(unpack(args))
+       --- Ascendo
+local plr = game.Players.LocalPlayer
+local args = {[1] = "Ascendo",[2] = "Me"}
+local Event = game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest
+Event:FireServer(unpack(args))
+
+game.workspace[plr.name].Animate.idle.Animation1.AnimationId = "rbxassetid://6576163810"
+game.workspace[plr.name].Animate.idle.Animation2.AnimationId = "rbxassetid://6576163810"
+wait(1)
+game.workspace[plr.name].Animate.idle.Animation2.AnimationId = "rbxassetid://6540447504"
+game.workspace[plr.name].Animate.idle.Animation1.AnimationId = "rbxassetid://6540447504"
+game.workspace[plr.name].Animate.run.RunAnim.AnimationId = "rbxassetid://6540447504"
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 50
+wait(80)
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
+game.workspace[plr.name].Animate.run.RunAnim.AnimationId = "rbxassetid://5684397250"
+game.workspace[plr.name].Animate.idle.Animation1.AnimationId = "rbxassetid://5532734372"
+game.workspace[plr.name].Animate.idle.Animation2.AnimationId = "rbxassetid://5532734372"
+   
+
+end)
+
+
+
+
+section3:addToggle("Motus  (M)", nil, function(value)
+	print("Toggled", value)
+	if value then
+	    
+clicktpon = true                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'm' then
+if mouse.Target then
+if clicktpon then
+local args = {
+        [1] = {
+            ["Incant"] = "motus",
+            ["Tick"] = "u4()"
+        }
+    }
+    
+game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+end
+end
+end
+end)
+
+   else
+    
+clicktpon = false                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'm' then
+if mouse.Target then
+if clicktpon then
+local args = {
+        [1] = {
+            ["Incant"] = "motus",
+            ["Tick"] = "u4()"
+        }
+    }
+    
+game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+end
+end
+end
+end)
+end
+
+end)
+
+
+
+section3:addToggle("Invisique (I)", nil, function(value)
+	print("Toggled", value)
+	if value then
+	    
+clicktpon = true                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'i' then
+if mouse.Target then
+if clicktpon then
+	local ohTable1 = {
+        ["Incant"] = "invisique",
+        ["Tick"] = "u4()"
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(ohTable1)
+
+end
+end
+end
+end)
+
+   else
+    
+clicktpon = false                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'i' then
+if mouse.Target then
+if clicktpon then
+	local ohTable1 = {
+        ["Incant"] = "invisique",
+        ["Tick"] = "u4()"
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(ohTable1)
+    print('Invisique')
+
+end
+end
+end
+end)
+end
+
+end)
+
+
+
+
+
+
+
+
+
+
+section3:addToggle("Light Orb (L)", nil, function(value)
+	print("Toggled", value)
+	if value then
+	    
+clicktpon = true                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'l' then
+if mouse.Target then
+if clicktpon then
+	local ohTable1 = {
+        ["Incant"] = "post tenebras spero lucem",
+        ["Tick"] = "u4()"
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(ohTable1)
+
+end
+end
+end
+end)
+
+   else
+    
+clicktpon = false                    
+plr = game.Players.LocalPlayer
+hum = plr.Character.HumanoidRootPart
+mouse = plr:GetMouse()
+mouse.KeyDown:connect(function(key)
+if key == 'l' then
+if mouse.Target then
+if clicktpon then
+	local ohTable1 = {
+        ["Incant"] = "post tenebras spero lucem",
+        ["Tick"] = "u4()"
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(ohTable1)
+    print('Invisique')
+
+end
+end
+end
+end)
+end
+
+end)
+
+
+
+
+
+
+section3:addToggle("Errox Femus  (T)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+	_G.OFF = true
+if _G.OFF == true then
+
+	 local function getPlayer()
+            local userInput = game:GetService("UserInputService")
+            local cam = workspace.CurrentCamera
+            local mousePos = userInput:GetMouseLocation()
+            local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+            players = {}
+            for _, x in next, game:GetService('Players'):GetPlayers() do
+                players[#players + 1] = x.Character
+            end
+            local raycastParams = RaycastParams.new()
+            raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+            raycastParams.FilterDescendantsInstances = players
+            raycastParams.IgnoreWater = true
+            local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+            if raycastResult then
+                for _, x in next, game:GetService('Players'):GetPlayers() do
+                    if not raycastResult.Instance:IsDescendantOf(x.Character) then
+                        continue 
+                    end
+                    return x
+                end
+            end
+            return false
+        end
+        
+        local function Set(list)
+            local set = {}
+            for _, l in ipairs(list) do
+                if l then
+                    set[l] = true
+                end
+            end
+            return set
+        end
+        game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+         if key == "t" then
+        local player = getPlayer()
+         if player then
+        -- Script generated by Nut The Menace Spy - credits to Claudev0#8849
+    
+    local args = {
+        [1] = {
+            ["Target"] = player.character,
+            ["Incant"] = "errox femus",
+            ["Tick"] = "u4()"
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+    
+        end
+        end
+        end)   
+    end
+
+   else
+       
+       
+    _G.OFF = false
+
+if _G.OFF == false then
+
+
+    local function getPlayer()
+            local userInput = game:GetService("UserInputService")
+            local cam = workspace.CurrentCamera
+            local mousePos = userInput:GetMouseLocation()
+            local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+            players = {}
+            for _, x in next, game:GetService('Players'):GetPlayers() do
+                players[#players + 1] = x.Character
+            end
+            local raycastParams = RaycastParams.new()
+            raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+            raycastParams.FilterDescendantsInstances = players
+            raycastParams.IgnoreWater = true
+            local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+            if raycastResult then
+                for _, x in next, game:GetService('Players'):GetPlayers() do
+                    if not raycastResult.Instance:IsDescendantOf(x.Character) then
+                        continue 
+                    end
+                    return x
+                end
+            end
+            return false
+        end
+        
+        local function Set(list)
+            local set = {}
+            for _, l in ipairs(list) do
+                if l then
+                    set[l] = false
+                end
+            end
+            return set
+        end
+        game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+         if key == "t" then
+        local player = getPlayer()
+         if player then
+    
+    
+    local args = {
+        [1] = {
+            ["Target"] = player.character,
+            ["Incant"] = "errox femus",
+            ["Tick"] = "u4()"
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+    
+        end
+        end
+        end)
+
+end
+end
+end)
+
+
+
+section3:addToggle("Incendia  (G)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+	_G.OFF = true
+if _G.OFF == true then
+
+	local function getPlayer()
+		local userInput = game:GetService("UserInputService")
+		local cam = workspace.CurrentCamera
+		local mousePos = userInput:GetMouseLocation()
+		local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+		players = {}
+		for _, x in next, game:GetService('Players'):GetPlayers() do
+			players[#players + 1] = x.Character
+		end
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+		raycastParams.FilterDescendantsInstances = players
+		raycastParams.IgnoreWater = true
+		local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+		if raycastResult then
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				if not raycastResult.Instance:IsDescendantOf(x.Character) then
+					continue 
+				end
+				return x
+			end
+		end
+		return false
+	end
+	
+	local function Set(list)
+		local set = {}
+		for _, l in ipairs(list) do
+			if l then
+				set[l] = true
+			end
+		end
+		return set
+	end
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+	 if key == "g" then
+	local player = getPlayer()
+	 if player then
+	local args = {
+		[1] = {
+			["Incant"] = "incendia",
+			["Target"] = player.character,
+			["Tick"] = "u4()"
+		}
+	}
+	game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+	end
+	end
+	end)
+end
+
+else
+
+	_G.OFF = false
+	if _G.OFF == false then
+
+
+		local function getPlayer()
+			local userInput = game:GetService("UserInputService")
+			local cam = workspace.CurrentCamera
+			local mousePos = userInput:GetMouseLocation()
+			local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+			players = {}
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				players[#players + 1] = x.Character
+			end
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+			raycastParams.FilterDescendantsInstances = players
+			raycastParams.IgnoreWater = true
+			local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+			if raycastResult then
+				for _, x in next, game:GetService('Players'):GetPlayers() do
+					if not raycastResult.Instance:IsDescendantOf(x.Character) then
+						continue 
+					end
+					return x
+				end
+			end
+			return false
+		end
+		
+		local function Set(list)
+			local set = {}
+			for _, l in ipairs(list) do
+				if l then
+					set[l] = true
+				end
+			end
+			return set
+		end
+		game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		 if key == "g" then
+		local player = getPlayer()
+		 if player then
+		local args = {
+			[1] = {
+				["Incant"] = "incendia",
+				["Target"] = player.character,
+				["Tick"] = "u4()"
+			}
+		}
+		game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+		end
+		end
+		end)
+	end
+end	
+	end)
+
+
+
+
+
+
+
+
+section3:addToggle("Ad Somnum  (J)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+	_G.OFF = true
+if _G.OFF == true then
+
+	local function getPlayer()
+		local userInput = game:GetService("UserInputService")
+		local cam = workspace.CurrentCamera
+		local mousePos = userInput:GetMouseLocation()
+		local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+		players = {}
+		for _, x in next, game:GetService('Players'):GetPlayers() do
+			players[#players + 1] = x.Character
+		end
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+		raycastParams.FilterDescendantsInstances = players
+		raycastParams.IgnoreWater = true
+		local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+		if raycastResult then
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				if not raycastResult.Instance:IsDescendantOf(x.Character) then
+					continue 
+				end
+				return x
+			end
+		end
+		return false
+	end
+	
+	local function Set(list)
+		local set = {}
+		for _, l in ipairs(list) do
+			if l then
+				set[l] = true
+			end
+		end
+		return set
+	end
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+	 if key == "j" then
+	local player = getPlayer()
+	 if player then
+		local args = {
+            [1] = {
+                ["Incant"] = "ad somnum",
+                ["Target"] = player.character,
+                ["Tick"] = "u4()"
+            }
+        }
+        game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+	end
+	end
+	end)
+end
+
+else
+
+	_G.OFF = false
+	if _G.OFF == false then
+
+
+		local function getPlayer()
+			local userInput = game:GetService("UserInputService")
+			local cam = workspace.CurrentCamera
+			local mousePos = userInput:GetMouseLocation()
+			local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+			players = {}
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				players[#players + 1] = x.Character
+			end
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+			raycastParams.FilterDescendantsInstances = players
+			raycastParams.IgnoreWater = true
+			local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+			if raycastResult then
+				for _, x in next, game:GetService('Players'):GetPlayers() do
+					if not raycastResult.Instance:IsDescendantOf(x.Character) then
+						continue 
+					end
+					return x
+				end
+			end
+			return false
+		end
+		
+		local function Set(list)
+			local set = {}
+			for _, l in ipairs(list) do
+				if l then
+					set[l] = true
+				end
+			end
+			return set
+		end
+		game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		 if key == "j" then
+		local player = getPlayer()
+		 if player then
+
+			local args = {
+				[1] = {
+					["Incant"] = "ad somnum",
+					["Target"] = player.character,
+					["Tick"] = "u4()"
+				}
+			}
+			game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+		
+		end
+		end
+		end)
+	end
+
+
+
+
+end
+end)
+
+
+
+
+
+section3:addToggle("Poena Doloris  (P)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+	_G.OFF = true
+if _G.OFF == true then
+
+	local function getPlayer()
+		local userInput = game:GetService("UserInputService")
+		local cam = workspace.CurrentCamera
+		local mousePos = userInput:GetMouseLocation()
+		local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+		players = {}
+		for _, x in next, game:GetService('Players'):GetPlayers() do
+			players[#players + 1] = x.Character
+		end
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+		raycastParams.FilterDescendantsInstances = players
+		raycastParams.IgnoreWater = true
+		local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+		if raycastResult then
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				if not raycastResult.Instance:IsDescendantOf(x.Character) then
+					continue 
+				end
+				return x
+			end
+		end
+		return false
+	end
+	
+	local function Set(list)
+		local set = {}
+		for _, l in ipairs(list) do
+			if l then
+				set[l] = true
+			end
+		end
+		return set
+	end
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+	 if key == "p" then
+	local player = getPlayer()
+	 if player then
+		local args = {
+            [1] = {
+                ["Incant"] = "poena doloris",
+                ["Target"] = player.character,
+                ["Tick"] = "u4()"
+            }
+        }
+        game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+        	
+	
+	end
+	end
+	end)
+end
+
+else
+
+	_G.OFF = false
+	if _G.OFF == false then
+
+
+		local function getPlayer()
+			local userInput = game:GetService("UserInputService")
+			local cam = workspace.CurrentCamera
+			local mousePos = userInput:GetMouseLocation()
+			local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+			players = {}
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				players[#players + 1] = x.Character
+			end
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+			raycastParams.FilterDescendantsInstances = players
+			raycastParams.IgnoreWater = true
+			local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+			if raycastResult then
+				for _, x in next, game:GetService('Players'):GetPlayers() do
+					if not raycastResult.Instance:IsDescendantOf(x.Character) then
+						continue 
+					end
+					return x
+				end
+			end
+			return false
+		end
+		
+		local function Set(list)
+			local set = {}
+			for _, l in ipairs(list) do
+				if l then
+					set[l] = true
+				end
+			end
+			return set
+		end
+		game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		 if key == "p" then
+		local player = getPlayer()
+		 if player then
+        
+			local args = {
+				[1] = {
+					["Incant"] = "poena doloris",
+					["Target"] = player.character,
+					["Tick"] = "u4()"
+				}
+			}
+			game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+			
+		end
+		end
+		end)
+	end
+
+end
+
+end)
+
+
+
+
+
+
+
+
+
+section3:addToggle("Fire Prison  (N)", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+	_G.OFF = true
+if _G.OFF == true then
+
+	local function getPlayer()
+		local userInput = game:GetService("UserInputService")
+		local cam = workspace.CurrentCamera
+		local mousePos = userInput:GetMouseLocation()
+		local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+		players = {}
+		for _, x in next, game:GetService('Players'):GetPlayers() do
+			players[#players + 1] = x.Character
+		end
+		local raycastParams = RaycastParams.new()
+		raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+		raycastParams.FilterDescendantsInstances = players
+		raycastParams.IgnoreWater = true
+		local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+		if raycastResult then
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				if not raycastResult.Instance:IsDescendantOf(x.Character) then
+					continue 
+				end
+				return x
+			end
+		end
+		return false
+	end
+	
+	local function Set(list)
+		local set = {}
+		for _, l in ipairs(list) do
+			if l then
+				set[l] = true
+			end
+		end
+		return set
+	end
+	game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+	 if key == "n" then
+	local player = getPlayer()
+	 if player then
+		local args = {
+            [1] = {
+                ["Incant"] = "phasmatos motus incendiamos",
+                ["Target"] = player.character,
+                ["Tick"] = "u4()"
+            }
+        }
+        game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+        	
+	
+	end
+	end
+	end)
+end
+
+else
+
+	_G.OFF = false
+	if _G.OFF == false then
+
+
+		local function getPlayer()
+			local userInput = game:GetService("UserInputService")
+			local cam = workspace.CurrentCamera
+			local mousePos = userInput:GetMouseLocation()
+			local mouseRay = cam:ViewportPointToRay(mousePos.X, mousePos.Y)
+			players = {}
+			for _, x in next, game:GetService('Players'):GetPlayers() do
+				players[#players + 1] = x.Character
+			end
+			local raycastParams = RaycastParams.new()
+			raycastParams.FilterType = Enum.RaycastFilterType.Whitelist
+			raycastParams.FilterDescendantsInstances = players
+			raycastParams.IgnoreWater = true
+			local raycastResult = workspace:Raycast(mouseRay.Origin, mouseRay.Direction * 1000, raycastParams)
+			if raycastResult then
+				for _, x in next, game:GetService('Players'):GetPlayers() do
+					if not raycastResult.Instance:IsDescendantOf(x.Character) then
+						continue 
+					end
+					return x
+				end
+			end
+			return false
+		end
+		
+		local function Set(list)
+			local set = {}
+			for _, l in ipairs(list) do
+				if l then
+					set[l] = true
+				end
+			end
+			return set
+		end
+		game.Players.LocalPlayer:GetMouse().KeyDown:Connect(function(key)
+		 if key == "n" then
+		local player = getPlayer()
+		 if player then
+        
+			local args = {
+				[1] = {
+					["Incant"] = "phasmatos motus incendiamos",
+					["Target"] = player.character,
+					["Tick"] = "u4()"
+				}
+			}
+			game:GetService("ReplicatedStorage").RemoteEvents.WitchSpell:FireServer(unpack(args))
+			
+		end
+		end
+		end)
+	end
+
+
+end
+end)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+section4:addButton("Immortality Revamp", function()
+	print("Clicked")
+    repeat wait()
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "increaseMaxHealth",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0000000
+            }
+        }
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args)) until
+        game.Players.LocalPlayer.Character:FindFirstChild("MaxHealth").Value == math.huge do
+            game.StarterGui:SetCore("SendNotification", {
+                Title = "NTM | Notification";
+                Text = "Immortality Loaded!";
+                Button1 = "Alright";
+                Button2 = "Close";
+                Duration = 5;
+        })
+    end
+    
+end)
+
+
+
+section4:addButton("Resurrect Yourself", function()
+	print("Clicked")
+   local args = {
+    [1] = {
+        ["IsCustom"] = false,
+        ["Approved"] = true,
+        ["Option"] = "revive",
+        ["Resurrect"] = true
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
+    
+end)
+
+
+section4:addButton("Become A Vamp", function()
+	print("Clicked")
+   
+     local args = {
+    [1] = {
+        ["Tribrid"] = true,
+        ["Resurrect"] = true,
+        ["Approved"] = true,
+        ["Transition"] = true,
+        ["Resurrect"] = true,
+        ["Option"] = "revive",
+        ["IsCustom"] = false
+        
+    }
+}
+
+game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
+
+local args = {
+            [1] = {
+                ["Message"] = "NutTheMenace: Grab a Blood Drink to complete the Transition ",
+                ["Player"] = game:GetService("Players").LocalPlayer
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.CharacterSystems.SelfNotification:FireServer(unpack(args))
+
+    
+end)
+
+section4:addButton("Auto Heretic", function()
+	print("Clicked")
+    local success, errMsg = pcall(function()
+
+
+        _G.Melee = true ---- make true into false to stop loop
+        while _G.Melee == true do wait(3)
+        
+        
+         local args = {[1] = {["EyeColor"] = "Brown",["Gender"] = "Male",["CharDisplayName"] = ""}}
+                game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))
+                
+                wait(1)
+                
+        
+        if game:GetService("Players").LocalPlayer.CharacterConfiguration.Specie.Value == "Siphoners" then
+            
+         _G.Melee = false ---- make true into false to stop loop
+        while _G.Melee == true do wait()
+         local args = {[1] = {["EyeColor"] = "Brown",["Gender"] = "Male",["CharDisplayName"] = ""}}
+                game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))   
+            end
+          
+              local args = {
+            [1] = {
+                ["Tribrid"] = true,
+                ["Resurrect"] = true,
+                ["Approved"] = true,
+                ["Transition"] = true,
+                ["Resurrect"] = true,
+                ["Option"] = "revive",
+                ["IsCustom"] = false,
+                ["Pos"] = CFrame.new(-251, 86, -100)
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.PlayerDeath:FireServer(unpack(args))
+         print("Heretic")
+        
+        end
+        
+        
+        
+        local args = {
+                    [1] = {
+                        ["Message"] = "NutTheMenace: Auto Heretic is Completed Enjoy :) ",
+                        ["Player"] = game:GetService("Players").LocalPlayer
+                    }
+                }
+                
+                game:GetService("ReplicatedStorage").Events.CharacterSystems.SelfNotification:FireServer(unpack(args))
+                
+        end
+        
+        end)
+        
+        
+end)
+
+
+section4:addButton("Auto Hide User", function()
+	print("Clicked")
+     
+   _G.Melee = true ---- make true into false to stop loop
+while _G.Melee == true do wait(3)
+    
+     local success, errMsg = pcall(function()
+                
+                
+                
+                
+                local Player = game.Players.LocalPlayer
+                if game.Players.LocalPlayer.Character.Head.InfoGui.NameUser or game.Players.LocalPlayer.Character.Head.InfoGui.GroupRank then
+                game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Name Has Been Auto Hidden";Text = "N.T.M: Be Careful"})
+                game.Players.LocalPlayer.Character.Head.InfoGui.NameUser:destroy()
+                game.Players.LocalPlayer.Character.Head.InfoGui.GroupRank:destroy()
+               
+                end 
+                
+                wait(1)
+                    
+                local Player = game.Players.LocalPlayer
+                if game.Players.LocalPlayer.Character.Head.InfoGui.NameUser or game.Players.LocalPlayer.Character.Head.InfoGui.GroupRank then
+                game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Name is Shown";Text = "N.T.M: Be Careful"})
+
+                
+end
+ if errMsg then
+        print(success)
+ end
+end)
+end
+
+end)
+
+
+
+
+
+section4:addButton("Change Species - Male", function()
+	print("Clicked")
+	
+	local success, errMsg = pcall(function()
+	    
+	local args = {[1] = {["EyeColor"] = "Blue",["Gender"] = "Male",["CharDisplayName"] = ""}}
+        game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))
+
+    game.Players.LocalPlayer.Character.Head.InfoGui.NameUser:destroy()
+    game.Players.LocalPlayer.Character.Head.InfoGui.GroupRank:destroy()
+    end)
+
+    if errMsg then
+        print(success)
+    end
+   
+	
+end)
+
+
+
+
+section4:addButton("Change Species - Female", function()
+	print("Clicked")
+	
+		local success, errMsg = pcall(function()
+	    
+	local args = {[1] = {["EyeColor"] = "Blue",["Gender"] = "Female",["CharDisplayName"] = ""}}
+        game:GetService("ReplicatedStorage").Events.SpawnAsCustom:FireServer(unpack(args))
+
+    game.Players.LocalPlayer.Character.Head.InfoGui.NameUser:destroy()
+    game.Players.LocalPlayer.Character.Head.InfoGui.GroupRank:destroy()
+    end)
+
+    if errMsg then
+        print(success)
+    end
+
+end)
+
+
+
+
+
+local page = venyx:addPage("Farming", 5012544693)
+local section10 = page:addSection("Farm Coins")
+
+section10:addToggle("Farm Coins", nil, function(value)
+	print("Toggled", value)
+	
+	if value then
+	
+      _G.Melee = true ---- make true into false to stop loop
+   
+   
+   while _G.Melee == true do wait()  
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    
+       local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+    
+        local args = {
+            [1] = {
+                [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+                [2] = "smallCoinGift",
+                [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+                [4] = 0;
+            }
+        }
+        
+        game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+        
+        local success, errMsg = pcall(function()
+    game.Players.LocalPlayer.Character.scoin:destroy()
+    end)
+
+    if errMsg then
+        print(success)
+    end
+        
+    
+    
+
+
+
+
+end
+else
+
+_G.Melee = false ---- make true into false to stop loop
+   while _G.Melee == true do wait()
+       
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "smallCoinGift",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+
+
+   local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "smallCoinGift",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+
+
+    local args = {
+        [1] = {
+            [1] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui.dialogueScript,
+            [2] = "smallCoinGift",
+            [3] = game:GetService("Players").LocalPlayer.PlayerGui.dialogueGui,
+            [4] = 0;
+        }
+    }
+    
+    game:GetService("ReplicatedStorage").Events.guiSpecialEvent:FireServer(unpack(args))
+    
+
+end
+end	
+end)
+
+
+
+
+local page = venyx:addPage("Teleports", 5012544693)
+local section5 = page:addSection("Choose A Destination")
+local section6 = page:addSection("Important")
+
+section5:addTextbox("Teleport to Player", "Player-Name", function(value, focusLost)
+	print("Input", value)
+    local username = string.lower(value)
+    local foundChild = false
+    local Child
+    for i,v in pairs(game.Players:GetChildren()) do
+        if string.lower(v.Name) == username then
+        foundChild = true
+        child = v
+    end
+end
+
+
+    
+if foundChild == true then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = child.Character.HumanoidRootPart.CFrame
+
+
+end
+end)
+
+
+
+section5:addButton("Town Square", function()
+	print("Clicked")
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-4.22500944, 85.3817291, -38.4750443, 0.949667633, -2.85709074e-08, 0.313259274, 8.66670202e-09, 1, 6.49315837e-08, -0.313259274, -5.89484976e-08, 0.949667633)
+    
+end)
+
+section5:addButton("Salvatore School", function()
+	print("Clicked")
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(259.549805, 85.19487, -972.431702, -0.195971593, 1.54016462e-08, 0.980609596, 3.43840156e-08, 1, -8.83466367e-09, -0.980609596, 3.19859517e-08, -0.195971593)
+    
+end)
+
+
+section5:addButton("Harvest Area", function()
+	print("Clicked")
+    
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-436.711945, 85.0141907, -380.574707, -0.131621614, 5.25101562e-09, 0.991300046, 2.61725885e-09, 1, -4.94958918e-09, -0.991300046, 1.94301597e-09, -0.131621614)
+    
+        
+end)
+
+
+section5:addButton("Thorn's Hideout", function()
+	print("Clicked")
+    
+    
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-464.953552, -170.370712, -308.230713, -0.120268367, -6.95533089e-08, -0.992741406, 4.60165168e-08, 1, -7.5636656e-08, 0.992741406, -5.47791998e-08, -0.120268367)
+        
+    
+end)
+
+
+section5:addButton("Silvercast Place", function()
+	print("Clicked")
+
+            
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-445.620728, 39.8480911, -1213.4762, 0.877762556, 5.70192817e-08, 0.479095906, -3.39962121e-08, 1, -5.67291032e-08, -0.479095906, 3.35072379e-08, 0.877762556)
+    
+    
+    
+end)
+
+
+section5:addButton("Strix House", function()
+	print("Clicked")
+
+            
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(171.784668, 88.8738251, -480.863495, 0.998628557, -1.65991505e-08, -0.052354414, 1.9668537e-08, 1, 5.8111862e-08, 0.052354414, -5.90619003e-08, 0.998628557)
+    
+    
+    
+end)
+
+
+
+section6:addButton("Remove All Barriers #1", function()
+	print("Clicked")
+    
+    while true do wait(0,5)
+    game:GetService("Workspace").Buildings.StrixManor.StrixKillBrick:Destroy()
+            for i= 1,3 do
+                game:GetService("Workspace").Buildings.StrixManor["Strix Boundary"]:Destroy()
+            end
+            for e= 1,2 do
+                game:GetService("Workspace")["Strix Boundary"]:Destroy()
+            end
+            end
+    end)
+     
+     section6:addButton("Remove All Barriers #2", function()
+	print("Clicked")
+	
+	while true do wait(0,5)
+         game:GetService("Workspace").SolarisKillBrick:Destroy()
+         
+         for i= 1,2 do
+            game:GetService("Workspace")["Silvercrest Boundary"]:Destroy()
+        end
+        game:GetService("Workspace").SilvercrestKillBrick:Destroy()
+	    end
+   
+end)
+
+
+
+
+local page = venyx:addPage("Chat Bypass", 5012544693)
+local section27 = page:addSection("Emojis")
+local section28 = page:addSection("Chat Words")
+
+
+section27:addButton("Laughing Emoji", function()
+	print("Clicked")
+	
+	local args = {
+        [1] = "\240\159\152\130\240\159\152\130\240\159\152\130",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section27:addButton("Yawning Emoji", function()
+	print("Clicked")
+	
+	local args = {
+        [1] = "\240\159\165\177\240\159\165\177\240\159\165\177",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+section27:addButton("Clown Emoji", function()
+	print("Clicked")
+	
+	local args = {
+        [1] = "\240\159\164\161\240\159\164\161\240\159\164\161",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+	
+end)
+
+
+section28:addButton("Bitch", function()
+	print("Clicked")
+	
+	--- Bitch
+        local args = {
+        [1] = " Bi \240\144\140\145 \205\156 \205\163 tc  \240\144\140\145 \205\156 \205\163 h ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section28:addButton("Fuck", function()
+	print("Clicked")
+	
+	--- Fuck
+        local args = {
+        [1] = "ff\240\144\140\145\240\144\140\145\240\144\140\145u\240\144\140\145\240\144\140\145\240\144\140\145c" ..
+            "\240\144\140\145\240\144\140\145\240\144\140\145k ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section28:addButton("Fuck You", function()
+	print("Clicked")
+	
+--- Fuck You
+        local args = {
+        [1] = "ff\240\144\140\145\240\144\140\145\240\144\140\145u\240\144\140\145\240\144\140\145\240\144\140\145c" ..
+            "\240\144\140\145\240\144\140\145\240\144\140\145k  Yo  \240\144\140\145 \205\156 \205\163" ..
+            " u ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+
+section28:addButton("Dick", function()
+	print("Clicked")
+	
+	---Dick
+         local args = {
+        [1] = " Di \240\144\140\145 \205\156 \205\163 ck ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+
+section28:addButton("Faggot", function()
+	print("Clicked")
+	
+	--- Faggot
+        local args = {
+        [1] = "ff \240\144\140\145 \205\156 \205\163 agg \240\144\140\145 \205\156 \205\163 ot ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section28:addButton("Queer", function()
+	print("Clicked")
+	
+	--- Queer
+        local args = {
+        [1] = " Qu \240\144\140\145 \205\156 \205\163 ee  \240\144\140\145 \205\156 \205\163 r ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section28:addButton("Shit", function()
+	print("Clicked")
+	
+	 --- Shit 
+        local args = {
+        [1] = " Sh \240\144\140\145 \205\156 \205\163 it ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+	
+end)
+
+section28:addButton("Cunt", function()
+	print("Clicked")
+	
+	--- Cunt
+        local args = {
+        [1] = "c \240\144\140\145 \205\156 \205\163 unt ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+section28:addButton("Nigger", function()
+	print("Clicked")
+	
+	--- Nigger
+        local args = {
+        [1] = "ni \240\144\140\145 \205\156 \205\163 gge \240\144\140\145 \205\156 \205\163 r ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+	
+end)
+
+section28:addButton("Piss", function()
+	print("Clicked")
+	
+	--- Piss
+        local args = {
+        [1] = " Pi \240\144\140\145 \205\156 \205\163 ss ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+section28:addButton("Boobs", function()
+	print("Clicked")
+	
+	--- Boobs
+        local args = {
+        [1] = " Bo \240\144\140\145 \205\156 \205\163 ob  \240\144\140\145 \205\156 \205\163 s ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+section28:addButton("Gay Niggers", function()
+	print("Clicked")
+	
+	 --- Gay Niggers 
+        local args = {
+        [1] = " Ga  \240\144\140\145 \205\156 \205\163 y n \240\144\140\145 \205\156 \205\163 igg \240\144\140\145 " ..
+            "\205\156 \205\163 ers ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+end)
+
+
+section28:addButton("Tits", function()
+	print("Clicked")
+	
+	--- Tits 
+        local args = {
+        [1] = " Ti \240\144\140\145 \205\156 \205\163 ts ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+	
+	
+end)
+
+
+section28:addButton("Slut", function()
+	print("Clicked")
+	
+	    -- Slut
+    
+    local args = {
+        [1] = " Sl \240\144\140\145 \205\156 \205\163 ut ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+    
+	
+end)
+
+
+section28:addButton("Hoe", function()
+	print("Clicked")
+	
+	-- Hoe
+    
+    local args = {
+        [1] = " Ho  \240\144\140\145 \205\156 \205\163 e ",
+        [2] = "All"
+    }
+    
+    game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+
+end)
+
+
+
+
+
+local page = venyx:addPage("Admin + More", 5012544693)
+local section28 = page:addSection("Server")
+
+section28:addButton("Join New Server", function()
+	print("Clicked")
+
+loadstring(game:HttpGet("https://www.scriptblox.com/raw/Server-Browser_80", true))();
+
+end)
+
+section28:addButton("Infinite Yield", function()
+	print("Clicked")
+
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+
+end)
+
+section28:addKeybind("Toggle GUI", Enum.KeyCode.RightControl, function()
+	print("Activated Keybind")
+	venyx:toggle()
+end, function()
+	print("Changed Keybind")
+end)
+
+
+
+
+
+-- second page
+local theme = venyx:addPage("Custom GUI", 5012544693)
+local colors = theme:addSection("Colors")
+
+
+for theme, color in pairs(themes) do -- all in one theme changer, i know, im cool
+	colors:addColorPicker(theme, color, function(color3)
+		venyx:setTheme(theme, color3)
+	end)
+	
+
+	
+end
+
+
+venyx:SelectPage(venyx.pages[1], true)
+
+game.StarterGui:SetCore("SendNotification", { 
+        Title = "Nut The Menace <3";
+        Text = "The Vampire Legacies GUI                       ~~~~ Now Active ~~~~";
+        Icon = "rbxthumb://type=Asset&id=7770638479&w=150&h=150";
+        Duration = "30";
+        Button1 = "Enjoy :)";
+    })
+
+   _G.Ban = true ---- make true into false to stop loop
+print('Running Anti-Ban')
+        while _G.Ban == true do wait()
+      
+            local Player = game.Players.LocalPlayer
+            if game:GetService("Players"):FindFirstChild("aarticaa") or game:GetService("Players"):FindFirstChild("DeceptiveInsidious") or game:GetService("Players"):FindFirstChild("p9xtn") or game:GetService("Players"):FindFirstChild("kaevena") or game:GetService("Players"):FindFirstChild("Injectedfangs") or game:GetService("Players"):FindFirstChild("LolaGlossi") or game:GetService("Players"):FindFirstChild("kvauIs") or game:GetService("Players"):FindFirstChild("pvtrova") or game:GetService("Players"):FindFirstChild("AlexYoung204") or game:GetService("Players"):FindFirstChild("maverouz") or game:GetService("Players"):FindFirstChild("EmeraIdaa") or game:GetService("Players"):FindFirstChild("niqvlas") or game:GetService("Players"):FindFirstChild("veurosia") or game:GetService("Players"):FindFirstChild("kefzef") or game:GetService("Players"):FindFirstChild("dvzqaa") or game:GetService("Players"):FindFirstChild("KIyricaI") or game:GetService("Players"):FindFirstChild("LuxeCoture") or game:GetService("Players"):FindFirstChild("Teletubbieshoi") or game:GetService("Players"):FindFirstChild("snowbeaxr") or game:GetService("Players"):FindFirstChild("Zureilia") or game:GetService("Players"):FindFirstChild("Emchikuwu") or game:GetService("Players"):FindFirstChild("delcourtria") or game:GetService("Players"):FindFirstChild("Crimsoux") or game:GetService("Players"):FindFirstChild("joshvuax") or game:GetService("Players"):FindFirstChild("Galiaeria") or game:GetService("Players"):FindFirstChild("Verdaunts") or game:GetService("Players"):FindFirstChild("LadyDavina") or game:GetService("Players"):FindFirstChild("DataSigh") or game:GetService("Players"):FindFirstChild("GospodinDeveloper") or game:GetService("Players"):FindFirstChild("m0onhead") then
+            Player:Kick("------------------ ||Your Favorite Scripter N.T.M. Saved You From Ban|| I FUCKING LOVE YOU <333")
+           
+            print('Running')
+
+        end
+        end
+
+        
